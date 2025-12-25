@@ -1,0 +1,41 @@
+name: Deploy to GitHub Pages
+
+# 触发条件：推送到 main 分支时执行
+on:
+  push:
+    branches: [ main ]
+
+# 执行任务
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. 拉取仓库代码
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. 安装 Node.js（适配项目的 Node 版本，比如 18）
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'npm'  # 缓存 npm 依赖，加速构建
+
+      # 3. 安装依赖
+      - name: Install dependencies
+        run: npm install
+
+      # 4. 打包生成 dist（React 项目改命令为 npm run build）
+      - name: Build project
+        run: npm run build
+
+      # 5. 部署到 gh-pages 分支
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          # 部署 dist 目录（React 改填 build）
+          publish_dir: ./dist
+          # GitHub 自动生成的令牌，无需手动配置
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          # 部署到 gh-pages 分支
+          publish_branch: gh-pages
