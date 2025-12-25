@@ -1,0 +1,52 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light;
+  color: #0f172a;
+  background-color: #f6f7fb;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --panel: #ffffff;
+  --border: rgba(15, 23, 42, 0.12);
+  --muted: rgba(15, 23, 42, 0.65);
+  --accent: #ffd60a;
+  --accent2: #a7f3d0;
+  --good: #16a34a;
+  --bad: #dc2626;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background:
+    radial-gradient(800px 380px at 20% 5%, rgba(255, 214, 10, 0.25), transparent 60%),
+    radial-gradient(700px 420px at 80% 0%, rgba(167, 243, 208, 0.35), transparent 55%),
+    linear-gradient(180deg, #f6f7fb 0%, #f2f5ff 100%);
+}
+
+button {
+  font-family: inherit;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+#app {
+  width: 100%;
+}
